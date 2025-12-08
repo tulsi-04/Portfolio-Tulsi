@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, CheckCircle, Github, Linkedin, Twitter, Instagram, Mail, MapPin } from "lucide-react";
+import { Send, CheckCircle, Github, Linkedin, Twitter, Instagram, Mail, MapPin, Phone, Globe } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { socialLinks, profileInfo } from "@/lib/data";
@@ -229,15 +229,41 @@ export default function Contact() {
           >
             <Card className="p-6 bg-card/50 border-border">
               <h3 className="font-display text-sm uppercase tracking-wider text-neon-magenta mb-4">
-                Contact Info
+                Contact Information
               </h3>
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Mail className="w-5 h-5 text-neon-cyan" />
+                <motion.a
+                  href={`mailto:${profileInfo.email}`}
+                  className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors group"
+                  whileHover={{ x: 5 }}
+                >
+                  <Mail className="w-5 h-5 text-neon-cyan group-hover:scale-110 transition-transform" />
                   <span className="font-mono text-sm">{profileInfo.email}</span>
-                </div>
+                </motion.a>
+                {profileInfo.phone && (
+                  <motion.a
+                    href={`tel:${profileInfo.phone.replace(/\s/g, '')}`}
+                    className="flex items-center gap-3 text-muted-foreground hover:text-neon-magenta transition-colors group"
+                    whileHover={{ x: 5 }}
+                  >
+                    <Phone className="w-5 h-5 text-neon-magenta group-hover:scale-110 transition-transform" />
+                    <span className="font-mono text-sm">{profileInfo.phone}</span>
+                  </motion.a>
+                )}
+                {profileInfo.website && (
+                  <motion.a
+                    href={profileInfo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-neon-purple transition-colors group"
+                    whileHover={{ x: 5 }}
+                  >
+                    <Globe className="w-5 h-5 text-neon-purple group-hover:scale-110 transition-transform" />
+                    <span className="font-mono text-sm">{profileInfo.website.replace(/^https?:\/\//, '')}</span>
+                  </motion.a>
+                )}
                 <div className="flex items-center gap-3 text-muted-foreground">
-                  <MapPin className="w-5 h-5 text-neon-magenta" />
+                  <MapPin className="w-5 h-5 text-neon-lime" />
                   <span className="font-mono text-sm">{profileInfo.location}</span>
                 </div>
               </div>

@@ -90,13 +90,25 @@ export default function About() {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
+                    <a 
+                      href={`mailto:${profileInfo.email}`}
+                      className="flex items-center gap-2 text-muted-foreground hover:text-neon-cyan transition-colors"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-neon-cyan" />
+                      <span className="font-mono text-sm">{profileInfo.email}</span>
+                    </a>
+                    {profileInfo.phone && (
+                      <a 
+                        href={`tel:${profileInfo.phone.replace(/\s/g, '')}`}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-neon-magenta transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-neon-magenta" />
+                        <span className="font-mono text-sm">{profileInfo.phone}</span>
+                      </a>
+                    )}
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <span className="w-2 h-2 rounded-full bg-neon-lime animate-pulse" />
                       <span className="font-mono text-sm">{profileInfo.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <span className="w-2 h-2 rounded-full bg-neon-cyan" />
-                      <span className="font-mono text-sm">{profileInfo.email}</span>
                     </div>
                   </motion.div>
                 </div>

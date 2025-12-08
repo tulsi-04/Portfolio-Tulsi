@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Download, MessageCircle } from "lucide-react";
-import { profileInfo } from "@/lib/data";
+import { ChevronDown, Download, MessageCircle, Github, Linkedin, Instagram } from "lucide-react";
+import { profileInfo, socialLinks } from "@/lib/data";
 import ParticleField from "@/components/three/ParticleField";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+const iconMap: Record<string, React.ElementType> = {
+  Github,
+  Linkedin,
+  Instagram,
+};
 
 export default function Hero() {
+  const [imageError, setImageError] = useState(false);
+
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -27,6 +36,31 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
+          <motion.div
+            className="mb-8 flex justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="relative">
+              <div className="absolute -inset-2 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-purple rounded-full opacity-75 blur-lg animate-pulse" />
+              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-neon-cyan/50 shadow-[0_0_20px_rgba(6,182,212,0.5)]">
+                {!imageError ? (
+                  <img 
+                    src={profileInfo.image} 
+                    alt={profileInfo.name}
+                    className="w-full h-full object-cover"
+                    onError={() => setImageError(true)}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 text-neon-cyan text-2xl md:text-3xl font-display font-bold">
+                    {profileInfo.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+
           <motion.p 
             className="font-mono text-neon-cyan text-sm md:text-base tracking-widest mb-4"
             initial={{ opacity: 0 }}
@@ -52,7 +86,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.7 }}
             data-testid="text-title"
           >
-            {profileInfo.title}
+            Creative Developer
           </motion.h2>
           
           <motion.p 
@@ -94,6 +128,40 @@ export default function Hero() {
                 <MessageCircle className="w-4 h-4" />
               </span>
             </Button>
+          </motion.div>
+          
+          <motion.div 
+            className="flex items-center justify-center gap-4 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
+          >
+            {socialLinks.map((link, index) => {
+              const Icon = iconMap[link.icon] || Github;
+              const colors = ["neon-cyan", "neon-magenta", "neon-purple"];
+              const color = colors[index % colors.length];
+              
+              return (
+                <motion.a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-3 rounded-full border-2 border-muted text-muted-foreground transition-all duration-300 hover:scale-110`}
+                  style={{
+                    borderColor: `hsl(var(--${color}) / 0.3)`,
+                  }}
+                  whileHover={{
+                    borderColor: `hsl(var(--${color}))`,
+                    boxShadow: `0 0 20px hsl(var(--${color}) / 0.5)`,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  data-testid={`social-link-${link.name.toLowerCase()}`}
+                >
+                  <Icon className="w-5 h-5" style={{ color: `hsl(var(--${color}))` }} />
+                </motion.a>
+              );
+            })}
           </motion.div>
         </motion.div>
       </div>

@@ -69,3 +69,11 @@ export interface PersonalityTrait {
   description: string;
   icon: string;
 }
+
+export interface Education {
+  id: string;
+  degree: string;
+  school: string;
+  period: string;
+  percentage?: string;
+}
