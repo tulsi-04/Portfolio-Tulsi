@@ -1,4 +1,4 @@
-import type { Skill, Experience, Project, PersonalityTrait, Education } from "@shared/schema";
+import type { Skill, Experience, Project, PersonalityTrait, Education, Certificate } from "@shared/schema";
 
 export const skills: Skill[] = [
   { name: "React", level: 95, category: "frontend", color: "cyan" },
@@ -54,7 +54,7 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Hotel Management System",
-    description: "Currently working on desktop application project 'Hotel Management System' with a team of four members, and I lead the Team.",
+    description: "Currently working on desktop application project 'Hotel Management System' with a team of members, and I lead the Team.",
     technologies: ["Desktop Application", "Team Leadership", "Project Management"],
     githubUrl: "https://github.com",
     featured: true,
@@ -126,14 +126,42 @@ export const education: Education[] = [
     degree: "Class 12",
     school: "NN International School",
     period: "2022",
-    percentage: "65.8%",
+    percentage: undefined,
   },
   {
     id: "3",
     degree: "Class 10",
     school: "Chauhan Public School",
     period: "2020",
-    percentage: "67.8%",
+    percentage: undefined,
+  },
+];
+
+export const certificates: Certificate[] = [
+  {
+    id: "1",
+    title: "LibreOffice Suite Writer 6.3 Training",
+    issuer: "Spoken Tutorial, IIT Bombay",
+  },
+  {
+    id: "2",
+    title: "HTML",
+    issuer: "Spoken Tutorial, IIT Bombay",
+  },
+  {
+    id: "3",
+    title: "C",
+    issuer: "Spoken Tutorial, IIT Bombay",
+  },
+  {
+    id: "4",
+    title: "JavaScript",
+    issuer: "Spoken Tutorial, IIT Bombay",
+  },
+  {
+    id: "5",
+    title: "Artificial Intelligence Foundations: Machine Learning",
+    issuer: "IBM",
   },
 ];
 
@@ -166,13 +194,21 @@ export const socialLinks = [
   { name: "Instagram", url: "https://www.instagram.com/snehaa04.__?igsh=M21xMTRoMDEwMm53", icon: "Instagram" },
 ];
 
-export const profileInfo = {
+export const profileInfo: {
+  name: string;
+  tagline: string;
+  bio: string;
+  email: string;
+  phone?: string;
+  location: string;
+  website: string;
+  image: string;
+} = {
   name: "Tulsi Kumari",
   tagline: "Building immersive digital experiences at the intersection of design and technology",
   bio: `Highly motivated Bachelor of Computer Application student, seeking an entry level position in a reputed company. Proven ability to seed projects, quickly adapt to new technologies. Eager to contribute technical skills and commitment to continuous learning to a dynamic team.`,
   email: "tulsibarnwal358@gmail.com",
-  phone: "+916204498323",
-  location: "Patna/Bihar-800004",
+  location: "Patna/Bihar",
   website: "https://tulsikumari.dev",
   image: "/profile.jpg",
 };
