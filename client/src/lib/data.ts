@@ -1,18 +1,20 @@
 import type { Skill, Experience, Project, PersonalityTrait, Education, Certificate } from "@shared/schema";
 
 export const skills: Skill[] = [
-  { name: "React", level: 95, category: "frontend", color: "cyan" },
-  { name: "TypeScript", level: 90, category: "frontend", color: "cyan" },
-  { name: "Next.js", level: 88, category: "frontend", color: "cyan" },
-  { name: "Three.js", level: 85, category: "frontend", color: "magenta" },
-  { name: "Tailwind CSS", level: 92, category: "frontend", color: "cyan" },
-  { name: "Framer Motion", level: 87, category: "frontend", color: "magenta" },
-  { name: "Node.js", level: 88, category: "backend", color: "lime" },
-  { name: "PostgreSQL", level: 82, category: "backend", color: "lime" },
-  { name: "GraphQL", level: 80, category: "backend", color: "purple" },
-  { name: "Docker", level: 78, category: "tools", color: "purple" },
-  { name: "Git", level: 90, category: "tools", color: "lime" },
-  { name: "Figma", level: 75, category: "tools", color: "magenta" },
+  // Desktop Programming
+  { name: "C", level: 85, category: "backend", color: "cyan", description: "Programming with C, C++, JAVA and VB6.0 to build desktop FrontEnd" },
+  { name: "C++", level: 85, category: "backend", color: "cyan", description: "Programming with C, C++, JAVA and VB6.0 to build desktop FrontEnd" },
+  { name: "Java", level: 80, category: "backend", color: "lime", description: "Programming with C, C++, JAVA and VB6.0 to build desktop FrontEnd" },
+  { name: "VB6.0", level: 75, category: "backend", color: "purple", description: "Programming with C, C++, JAVA and VB6.0 to build desktop FrontEnd" },
+  // Web Development
+  { name: "HTML", level: 90, category: "frontend", color: "cyan", description: "Creating web pages and interfaces by using HTML, CSS, JavaScript and learning some latest web technologies" },
+  { name: "CSS", level: 88, category: "frontend", color: "cyan", description: "Creating web pages and interfaces by using HTML, CSS, JavaScript and learning some latest web technologies" },
+  { name: "JavaScript", level: 85, category: "frontend", color: "magenta", description: "Creating web pages and interfaces by using HTML, CSS, JavaScript and learning some latest web technologies" },
+  { name: "React", level: 85, category: "frontend", color: "cyan", description: "Creating web pages and interfaces by using HTML, CSS, JavaScript and learning some latest web technologies" },
+  { name: "TypeScript", level: 80, category: "frontend", color: "cyan", description: "Creating web pages and interfaces by using HTML, CSS, JavaScript and learning some latest web technologies" },
+  // Database Management
+  { name: "SQL", level: 85, category: "backend", color: "lime", description: "Managing database by using SQL, PSQL, to understand data structures and relationship" },
+  { name: "PostgreSQL", level: 82, category: "backend", color: "lime", description: "Managing database by using SQL, PSQL, to understand data structures and relationship" },
 ];
 
 export const experiences: Experience[] = [
@@ -206,9 +208,9 @@ export const profileInfo: {
 } = {
   name: "Tulsi Kumari",
   tagline: "Building immersive digital experiences at the intersection of design and technology",
-  bio: `Highly motivated Bachelor of Computer Application student, seeking an entry level position in a reputed company. Proven ability to seed projects, quickly adapt to new technologies. Eager to contribute technical skills and commitment to continuous learning to a dynamic team.`,
+  bio: `Hi, I am Tulsi, a Final Year BCA graduate passionate about Software Development. Learning new Technologies and exploring things to upgrading my skills, to build better, more impactful softwares.`,
   email: "tulsibarnwal358@gmail.com",
   location: "Patna/Bihar",
   website: "https://tulsikumari.dev",
-  image: "/profile.jpg",
+  image: "/img.jpg",
 };

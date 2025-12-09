@@ -42,6 +42,7 @@ export interface Skill {
   level: number;
   category: "frontend" | "backend" | "tools" | "other";
   color: "cyan" | "magenta" | "purple" | "lime";
+  description?: string;
 }
 
 export interface Experience {

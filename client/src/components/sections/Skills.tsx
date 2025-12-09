@@ -52,6 +52,12 @@ function SkillBubble({ skill, index }: { skill: Skill; index: number }) {
           {skill.name}
         </span>
         
+        {skill.description && (
+          <p className="text-xs text-muted-foreground text-center mb-3 px-2 leading-relaxed">
+            {skill.description}
+          </p>
+        )}
+        
         <div className="relative w-16 h-16">
           <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
             <circle

@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import QuickLinks from "@/components/sections/QuickLinks";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
 import Education from "@/components/sections/Education";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="relative" data-testid="page-home">
       <Hero />
+      <QuickLinks />
       <About />
       <Skills />
       <Education />
