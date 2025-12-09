@@ -85,6 +85,15 @@ export default function Footer() {
             <span>and lots of</span>
             <span className="font-mono text-neon-cyan">{"<code/>"}</span>
           </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="text-muted-foreground text-sm font-mono text-center"
+        >
+          ThankYou for Visiting my page
+        </motion.div>
         </div>
       </div>
     </footer>

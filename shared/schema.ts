@@ -75,5 +75,12 @@ export interface Education {
   degree: string;
   school: string;
   period: string;
-  percentage?: string;
+  percentage?: string | undefined;
+}
+
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  period?: string;
 }
