@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, CheckCircle, Github, Linkedin, Twitter, Instagram, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { Send, CheckCircle, Github, Linkedin, Twitter, Instagram, Mail, MapPin, Phone, Globe, Clock } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { socialLinks, profileInfo } from "@/lib/data";
@@ -84,11 +84,11 @@ export default function Contact() {
             className="font-display text-section uppercase text-center mb-4"
             data-testid="text-contact-title"
           >
-            <span className="gradient-text">Get In Touch</span>
+            <span className="gradient-text">Contact Me</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-purple mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-lg text-center max-w-xl mx-auto">
-            Have a project in mind or just want to say hi? I'd love to hear from you.
+            Let's discuss new project, creative ideas, or opportunities to be part of something amazing that how we can work together to bring your ideas to real world.
           </p>
         </motion.div>
 
@@ -240,16 +240,18 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-neon-cyan group-hover:scale-110 transition-transform" />
                   <span className="font-mono text-sm">{profileInfo.email}</span>
                 </motion.a>
-                {profileInfo.phone && (
-                  <motion.a
-                    href={`tel:${profileInfo.phone.replace(/\s/g, '')}`}
-                    className="flex items-center gap-3 text-muted-foreground hover:text-neon-magenta transition-colors group"
-                    whileHover={{ x: 5 }}
-                  >
-                    <Phone className="w-5 h-5 text-neon-magenta group-hover:scale-110 transition-transform" />
-                    <span className="font-mono text-sm">{profileInfo.phone}</span>
-                  </motion.a>
-                )}
+                <motion.a
+                  href={`tel:${profileInfo.phone?.replace(/\s/g, '') || ''}`}
+                  className="flex items-center gap-3 text-muted-foreground hover:text-neon-magenta transition-colors group"
+                  whileHover={{ x: 5 }}
+                >
+                  <Phone className="w-5 h-5 text-neon-magenta group-hover:scale-110 transition-transform" />
+                  <span className="font-mono text-sm">{profileInfo.phone}</span>
+                </motion.a>
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <Clock className="w-5 h-5 text-neon-purple" />
+                  <span className="font-mono text-sm">Response Time: Within 24 hours</span>
+                </div>
                 {profileInfo.website && (
                   <motion.a
                     href={profileInfo.website}
@@ -273,7 +275,7 @@ export default function Contact() {
               <h3 className="font-display text-sm uppercase tracking-wider text-neon-purple mb-4">
                 Connect
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 mb-4">
                 {socialLinks.map((link, index) => {
                   const Icon = iconMap[link.icon] || Github;
                   const colors = ["neon-cyan", "neon-magenta", "neon-purple", "neon-lime"];
@@ -301,7 +303,28 @@ export default function Contact() {
                     </motion.a>
                   );
                 })}
+                <motion.a
+                  href="https://github.com/tulsi-04/Portfolio-Tulsi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-md border border-muted text-muted-foreground transition-all duration-300"
+                  style={{
+                    borderColor: `hsl(var(--neon-cyan) / 0.3)`,
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    borderColor: `hsl(var(--neon-cyan))`,
+                    boxShadow: `0 0 15px hsl(var(--neon-cyan) / 0.5)`,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  data-testid="link-social-github-repo"
+                >
+                  <Github className="w-5 h-5" style={{ color: `hsl(var(--neon-cyan))` }} />
+                </motion.a>
               </div>
+              <p className="text-sm text-muted-foreground font-mono">
+                Available for Freelancing and Collaborations.
+              </p>
             </Card>
 
             <Card className="p-6 bg-gradient-to-br from-neon-cyan/10 via-neon-magenta/10 to-neon-purple/10 border-neon-purple/30">

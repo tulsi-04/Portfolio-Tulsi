@@ -210,6 +210,7 @@ export const profileInfo: {
   tagline: "Building immersive digital experiences at the intersection of design and technology",
   bio: `Hi, I am Tulsi, a Final Year BCA graduate passionate about Software Development. Learning new Technologies and exploring things to upgrading my skills, to build better, more impactful softwares.`,
   email: "tulsibarnwal358@gmail.com",
+  phone: "+91 6204498323",
   location: "Patna/Bihar",
   website: "https://tulsikumari.dev",
   image: "/img.jpg",

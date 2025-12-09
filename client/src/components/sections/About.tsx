@@ -60,30 +60,7 @@ export default function About() {
           <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-purple mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-7 gap-12 items-start">
-          <motion.div
-            className="lg:col-span-2 order-last lg:order-first"
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <div className="relative max-w-sm mx-auto">
-              <div className="absolute -inset-1 bg-gradient-to-br from-neon-cyan via-neon-magenta to-neon-purple rounded-3xl opacity-40 blur-xl" />
-              <div className="relative rounded-3xl overflow-hidden border border-border/40 bg-card/40 backdrop-blur">
-                <img
-                  src={profileInfo.image}
-                  alt={profileInfo.name}
-                  className="w-full h-[420px] object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/80 to-transparent">
-                  <p className="font-display text-lg text-neon-cyan">Tulsi Kumari</p>
-                  <p className="text-sm text-muted-foreground">{profileInfo.tagline}</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
           <motion.div
             className="lg:col-span-3"
             initial={{ opacity: 0, x: 0 }}
